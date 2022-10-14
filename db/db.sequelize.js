@@ -26,7 +26,7 @@ const CollectionOptionalFields =
 const Items = require("../models/items/item")(sequelize);
 const ItemOptionalFields =
   require("../models/items/itemOptionalField")(sequelize);
-const ItemTags = require("./models/collections/items/ItemTag")(sequelize);
+const ItemTags = require("../models/collections/items/ItemTag")(sequelize);
 const Tags = require("../models/items/tag")(sequelize);
 const Comments =
   require("../models/items/comment")(sequelize);

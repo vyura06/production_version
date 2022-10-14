@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 "use strict";
 
-const { CollectionTopics } = require("../db/db");
+const { CollectionTopics } = require("../db/db.sequelize");
 
 class CollectionTopicsController {
   async getTopics(req, res) {

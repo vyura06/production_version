@@ -1,6 +1,6 @@
 "use strict";
 
-const { Tags } = require("../db/db");
+const { Tags } = require("../db/db.sequelize");
 
 class TagsController {
   async getTags(req, res) {

@@ -11,7 +11,7 @@ const {
   Collections,
   Likes,
   Comments
-} = require("../db/db");
+} = require("../db/db.sequelize");
 const sequelize = require("sequelize");
 
 class ItemsController {

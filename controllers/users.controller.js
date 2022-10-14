@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 "use strict";
 
-const { Users, Likes, Collections } = require("../db/db");
+const { Users, Likes, Collections } = require("../db/db.sequelize");
 const collectionsController = require("./collections.controller");
 
 class UsersController {

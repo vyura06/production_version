@@ -1,6 +1,6 @@
 "use strict";
 
-const { host, user, pass, dbname, port } = require("./db.constants");
+const { host, user, pass, dbname, port } = require("./db.connection");
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize(dbname, user, pass, {
@@ -14,23 +14,23 @@ const sequelize = new Sequelize(dbname, user, pass, {
   }
 });
 
-const Users = require("./models/User")(sequelize);
+const Users = require("../models/user/user")(sequelize);
 const CollectionTopics =
-  require("./models/collections/CollectionTopic")(sequelize);
+  require("../models/collections/collectionTopic")(sequelize);
 const Collections =
-  require("./models/collections/Collection")(sequelize);
+  require("../models/collections/collection")(sequelize);
 const OptionalFieldTypes =
-  require("./models/collections/OptionalFieldType")(sequelize);
+  require("../models/collections/optionalFieldType")(sequelize);
 const CollectionOptionalFields =
-  require("./models/collections/CollectionOptionalField")(sequelize);
-const Items = require("./models/collections/items/Item")(sequelize);
+  require("../models/collections/collectionOptionalField")(sequelize);
+const Items = require("../models/items/item")(sequelize);
 const ItemOptionalFields =
-  require("./models/collections/items/ItemOptionalField")(sequelize);
+  require("../models/items/itemOptionalField")(sequelize);
 const ItemTags = require("./models/collections/items/ItemTag")(sequelize);
-const Tags = require("./models/collections/items/Tag")(sequelize);
+const Tags = require("../models/items/tag")(sequelize);
 const Comments =
-  require("./models/collections/items/Comment")(sequelize);
-const Likes = require("./models/collections/items/Like")(sequelize);
+  require("../models/items/comment")(sequelize);
+const Likes = require("../models/items/like")(sequelize);
 
 Users.hasMany(Collections, { foreignKey: "user_id" });
 Collections.belongsTo(Users, { foreignKey: "user_id" });

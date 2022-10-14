@@ -5,9 +5,9 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ChatIcon from '@mui/icons-material/Chat';
 import { Divider, IconButton, Stack, Paper, Chip, Button, Popover, TextField } from "@mui/material";
-import itemsService from "../../shared/api/items.service";
 import SendIcon from '@mui/icons-material/Send';
 import DeleteIcon from '@mui/icons-material/Delete';
+import itemsService from "../../service/items.service";
 import "./item.css";
 
 function Item({ currentUser }) {

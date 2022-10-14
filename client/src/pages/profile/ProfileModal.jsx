@@ -14,8 +14,8 @@ import { styled } from '@mui/material/styles';
 import AddIcon from '@mui/icons-material/Add';
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from '@mui/icons-material/Delete';
-import collectionsService from "../../shared/api/collections.service";
-import imageService from "../../shared/api/image.service";
+import collectionsService from "../../service/collections.service";
+import imageService from "../../service/image.service";
 import DoneIcon from '@mui/icons-material/Done';
 import "./profile.css";
 

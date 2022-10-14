@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import itemsService from "../../shared/api/items.service";
 import { DataGrid } from '@mui/x-data-grid';
 import { Chip, IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
@@ -9,6 +8,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import itemsService from "../../service/items.service";
 import "./collection.css";
 
 function Collection({ currentUser }) {

@@ -3,10 +3,10 @@ import { Alert, AlertTitle, Avatar, Chip, Button } from "@mui/material";
 import CollectionsBookmarkOutlinedIcon from '@mui/icons-material/CollectionsBookmarkOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddIcon from '@mui/icons-material/Add';
-import ProfileModal from "./ProfileModal";
-import CollectionsTable from "../components/CollectionsTable";
-import collectionsService from "../../shared/api/collections.service";
-import usersService from "../../shared/api/users.service";
+import ProfileModal from "../profile/ProfileModal";
+import CollectionsTable from "../table/CollectionsTable";
+import collectionsService from "../../service/collections.service";
+import usersService from "../../service/users.service";
 import "./profile.css";
 
 function Profile({ currentUser, topics, fieldTypes }) {

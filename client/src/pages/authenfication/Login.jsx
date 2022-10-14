@@ -11,35 +11,30 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { useForm } from "react-hook-form";
-import usersService from "../shared/api/users.service";
 import { Link, useNavigate } from 'react-router-dom';
+import usersService from "../../service/users.service";
 import "./auth.css";
 
-function Registration() {
-  const [showPassword, setShowPassword] = useState(false);
+function Login({ setCurrentUser }) {
   const { register, handleSubmit } = useForm();
+  const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [disableSubmit, setDisableSubmit] = useState(false);
   const navigate = useNavigate();
 
   const onSubmit = data => {
     setDisableSubmit(true);
-    const { password, confirm_password } = data;
-
-    if (password !== confirm_password) {
-
-    } else {
-      usersService
-        .createUser(data)
-        .then(() => {
-          navigate("/login");
-          setDisableSubmit(false);
-        })
-        .catch(err => {
-          setErrorMessage(err.response.data);
-          setDisableSubmit(false);
-        });
-    }
+    usersService
+      .login(data.email, data.password)
+      .then(response => {
+        setCurrentUser(response.data.user)
+        navigate("/");
+        setDisableSubmit(false);
+      })
+      .catch(err => {
+        setErrorMessage(err.response.data);
+        setDisableSubmit(false);
+      });
   };
 
   const handleShowPassword = () => setShowPassword(!showPassword);
@@ -47,26 +42,6 @@ function Registration() {
   return (
     <div className="auth-form-container">
       <Paper component="form" elevation={3} onSubmit={handleSubmit(onSubmit)}>
-
-        <TextField
-          size="small"
-          label="Last name"
-          variant="outlined"
-          className="auth-form__input"
-          required
-          disabled={disableSubmit}
-          {...register("last_name", { required: true })}
-        />
-
-        <TextField
-          size="small"
-          label="First name"
-          variant="outlined"
-          className="auth-form__input"
-          required
-          disabled={disableSubmit}
-          {...register("first_name", { required: true })}
-        />
 
         <TextField
           size="small"
@@ -102,17 +77,6 @@ function Registration() {
           />
         </FormControl>
 
-        <TextField
-          type="password"
-          size="small"
-          label="Confirm password"
-          variant="outlined"
-          className="auth-form__input"
-          required
-          disabled={disableSubmit}
-          {...register("confirm_password", { required: true })}
-        />
-
         <Button
           variant="contained"
           type="submit"
@@ -120,12 +84,13 @@ function Registration() {
           style={{ marginRight: 15 }}
           disabled={disableSubmit}
         >
-          Create
+          Login
         </Button>
         <span style={{ marginRight: 10 }}>Or</span>
-        <Link to="/login">Login</Link>
+        <Link to="/registration">Create new</Link>
 
         {errorMessage && <div className="error-message">{errorMessage}</div>}
+
         <Button
         variant="contained"
         className="continue-button"
@@ -133,11 +98,11 @@ function Registration() {
         onClick={() => navigate("/")}
         disableElevation
       >
-        Continue without registration
+        Continue without authentification
       </Button>
       </Paper>
     </div>
   );
 }
 
-export default Registration;
+export default Login;

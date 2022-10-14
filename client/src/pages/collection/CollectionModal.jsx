@@ -8,8 +8,8 @@ import Button from "@mui/material/Button";
 import Autocomplete from "@mui/material/Autocomplete";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { Checkbox } from "@mui/material";
+import tagsService from "../../service/tags.service";
 import "./collection.css";
-import tagsService from "../../shared/api/tags.service";
 
 function CollectionModal(props) {
   const {

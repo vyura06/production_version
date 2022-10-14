@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Nav from "./components/Nav";
-import "./main.css";
+import Nav from "../navbar/Nav";
+import "../main/main.css";
 
 function Layout({ currentUser, setCurrentUser }) {
   return (

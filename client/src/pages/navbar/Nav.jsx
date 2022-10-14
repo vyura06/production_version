@@ -7,8 +7,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import LoginIcon from '@mui/icons-material/Login';
 import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from "react-router-dom";
-import ProfileMenu from "./ProfileMenu";
-import "../main.css";
+import ProfileMenu from "../profile/ProfileMenu";
+import "../main/main.css";
 
 function Nav({ currentUser, setCurrentUser }) {
   const navigate = useNavigate();

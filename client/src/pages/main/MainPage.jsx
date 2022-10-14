@@ -1,10 +1,10 @@
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import collectionsService from "../shared/api/collections.service";
-import itemsService from "../shared/api/items.service";
-import tagsService from "../shared/api/tags.service";
-import CollectionsTable from "./components/CollectionsTable";
-import ItemsTable from "./components/ItemsTable";
+import collectionsService from "../../shared/api/collections.service";
+import itemsService from "../../shared/api/items.service";
+import tagsService from "../../shared/api/tags.service";
+import CollectionsTable from "../table/CollectionsTable";
+import ItemsTable from "../table/ItemsTable";
 import "./main.css";
 
 function MainPage({ currentUser }) {

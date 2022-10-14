@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid';
-import usersService from "../../shared/api/users.service";
 import SettingsIcon from '@mui/icons-material/Settings';
 import { IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
 import BlockIcon from '@mui/icons-material/Block';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import usersService from "../../service/users.service";
 import "./admin.css";
 
 function AdminPanel({ currentUser, setCurrentUser }) {

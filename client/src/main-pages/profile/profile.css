@@ -1,0 +1,102 @@
+.profile__container {
+  display: flex;
+  position: relative;
+  margin-top: 50px;
+  width: var(--total-width);
+}
+
+.collections__container {
+  width: calc(var(--total-width) - var(--items-width) / 2);
+}
+
+.collections__container header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(var(--items-width) / 2);
+  margin-right: 40px;
+}
+
+.user-info > h1 {
+  font-size: 1.8em;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.last-visit {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.user-info__stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.user-info__stats > .stats__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-info__stats >
+.stats__stat:not(.stats__stat:last-child) {
+  margin-right: 15px;
+}
+
+.stats__stat > span {
+  margin: 0;
+  margin-top: 5px;
+  font-size: 1.1em;
+}
+
+.collection-info {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.collection-info > label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.collection-info > label > .MuiButtonBase-root {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  height: 210px;
+}
+
+.collection-info > label > .MuiButtonBase-root * {
+  margin: 0;
+}
+
+.collection-info__fields {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.collection-modal {
+  min-width: 300px;
+  width: 550px;
+}

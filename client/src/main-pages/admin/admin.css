@@ -1,0 +1,21 @@
+.admin__container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 50px;
+  width: var(--total-width);
+}
+
+.admin__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin__header > h1 {
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.admin__container > .users__container {
+  min-height: 450px;
+}

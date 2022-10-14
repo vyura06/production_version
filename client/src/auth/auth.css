@@ -1,0 +1,46 @@
+.auth-form-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 30rem;
+  margin: 0 auto;
+}
+
+.auth-form-container > form {
+  width: 100%;
+  padding: 1.8rem;
+}
+
+.auth-form-container h1 {
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+
+.auth-form__input {
+  width: 100%;
+  margin-bottom: 1.2rem!important;
+}
+
+.auth-form__submit-button {
+  align-self: flex-start;
+  margin-bottom: 0.5rem!important;
+  width: 10rem;
+}
+
+.auth-divider {
+  font-size: 0.8rem;
+  margin: 1.8rem 0!important;
+}
+
+.error-message {
+  color: tomato;
+}
+
+.continue-button {
+  width: 100%;
+  margin-top: 1.5rem!important;
+  background: #b9b9b9!important;
+}

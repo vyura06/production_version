@@ -1,0 +1,75 @@
+.item__container {
+  position: relative;
+  margin: 50px 0;
+  width: var(--total-width);
+}
+
+.info__header {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.info__title > h1 {
+  margin-top: 0;
+  font-size: 1.8em;
+}
+
+.info__header > .info__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info__header .info__field {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 0;
+}
+
+.info__header .info__field > p {
+  margin: 0;
+  width: calc(100% - 105px);
+}
+
+.item__stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info__header .field__header {
+  width: 105px;
+  margin-right: 30px;
+  opacity: 0.5;
+  user-select: none;
+  line-height: 1;
+  font-size: 0.95em;
+}
+
+.item__stats {
+  margin: 20px 0 0;
+}
+
+.item__container > .MuiDivider-withChildren {
+  margin: 10px 0 20px;
+  color: #aaa;
+  user-select: none;
+  font-size: 0.9em;
+}
+
+.comment__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comments__comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.comments__comment > p {
+  margin: 0;
+}

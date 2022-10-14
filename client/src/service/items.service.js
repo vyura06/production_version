@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { baseItemsUrl as baseUrl, lastAddedItemsBaseUrl } from "../constants/routes";
+import { baseItemsUrl as baseUrl, lastAddedItemsBaseUrl } from "../route/routes";
 
 axios.defaults.headers.common = {
   "Content-Type": "application/json",

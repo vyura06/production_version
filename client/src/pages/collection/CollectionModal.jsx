@@ -131,7 +131,7 @@ function CollectionModal(props) {
       {editItem ? (
         <DialogTitle>{t("collection.modal.editItem")}</DialogTitle>
       ) : (
-        <DialogTitle>{t("collection.modal.new")}</DialogTitle>
+        <DialogTitle>{t("collection.modal.newItem")}</DialogTitle>
       )}
       <DialogContent className="item__modal">
         <form onSubmit={onSubmit}>

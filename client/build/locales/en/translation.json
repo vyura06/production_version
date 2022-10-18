@@ -65,7 +65,7 @@
         
         "info":"Info",
         "goItem":"Go to item",
-        "greateItem":"Create item",
+        "createItem":"Create item",
         "editItem":"Edit selected item",
         "deleteItem":"Delete selected item",
         "noItem":"There are no items",
@@ -84,7 +84,7 @@
 
         "modal":{
             "editItem":"Edit item",
-            "new":"New item",
+            "newItem":"New item",
             "nameItem":"Item name",
             "tags":"Tags",
             "intr":"Intresting",

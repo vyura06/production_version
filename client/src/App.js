@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 // import { ThemeProvider } from '@mui/material/styles';
 import Login from "./pages/authenfication/Login";
 import Registration from "./pages/authenfication/Registration";
@@ -32,10 +32,10 @@ function App() {
       .catch(err => console.log(err));
   }, []);
 
-  // TODO: trim form values
+  //  <ThemeProvider theme={currentTheme}> </ThemeProvider>
 
   return (
-    // <ThemeProvider theme={currentTheme}>
+    <Suspense>
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />} />
@@ -54,7 +54,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-    // </ThemeProvider>
+    </Suspense>
   );
 }
 

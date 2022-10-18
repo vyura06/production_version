@@ -7,10 +7,15 @@ import CollectionsTable from "../table/CollectionsTable";
 import ItemsTable from "../table/ItemsTable";
 import "./main.css";
 
+import {useTranslation} from "react-i18next";
+import "../../tranlations/i18next";
+
 function MainPage({ currentUser }) {
   const [biggestCollections, setBiggestCollections] = useState([]);
   const [lastItems, setLastItems] = useState([]);
   const [tags, setTags] = useState([]);
+
+  const {t} = useTranslation();
 
   const collectionColumns = [
     "#",
@@ -21,8 +26,6 @@ function MainPage({ currentUser }) {
     "Created",
     "Link",
   ];
-
-  // TODO: try to deal with firebase on client side
 
   useEffect(() => {
     collectionsService
@@ -44,29 +47,29 @@ function MainPage({ currentUser }) {
   return (
     <>
       <section className="biggest-collections">
-        <h2>Top 5 biggest collections</h2>
+        <h2>{t("main.top5")}</h2>
         <div>
           { biggestCollections?.length ? (
             <CollectionsTable columns={collectionColumns} collections={biggestCollections} readOnly={true} />
           ) : (
-            <p>There are no items.</p>
+            <p>{t("main.nodata")}</p>
           )}
         </div>
       </section>
 
       <section className="last-items">
-        <h2>Last added items</h2>
+        <h2> {t("main.lastAdded")}</h2>
         <div>
           { lastItems?.length ? (
             <ItemsTable items={lastItems} />
           ) : (
-            <p>There are no items.</p>
+            <p>{t("main.nodata")}</p>
           )}
         </div>
       </section>
 
       <section className="tags">
-        <h2>Tags</h2>
+        <h2>{t("main.tags")}</h2>
         <div>
           { tags?.length ? (
             tags.map((tag, index) => (
@@ -75,7 +78,7 @@ function MainPage({ currentUser }) {
               </Button>
             ))
           ) : (
-            <p>There are no items.</p>
+            <p>{t("main.nodata")}</p>
           )}
         </div>
       </section>

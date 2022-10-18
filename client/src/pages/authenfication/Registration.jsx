@@ -15,7 +15,13 @@ import usersService from "../../service/users.service";
 import { Link, useNavigate } from 'react-router-dom';
 import "./auth.css";
 
+import {useTranslation} from "react-i18next";
+import "../../tranlations/i18next";
+
 function Registration() {
+
+  const {t} = useTranslation();
+
   const [showPassword, setShowPassword] = useState(false);
   const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState(null);
@@ -50,7 +56,7 @@ function Registration() {
 
         <TextField
           size="small"
-          label="Last name"
+          label={t("authenfication.registration.lastName")}
           variant="outlined"
           className="auth-form__input"
           required
@@ -60,7 +66,7 @@ function Registration() {
 
         <TextField
           size="small"
-          label="First name"
+          label={t("authenfication.registration.firstName")}
           variant="outlined"
           className="auth-form__input"
           required
@@ -70,7 +76,7 @@ function Registration() {
 
         <TextField
           size="small"
-          label="Email"
+          label={t("authenfication.registration.email")}
           variant="outlined"
           className="auth-form__input"
           autoComplete="off"
@@ -80,7 +86,7 @@ function Registration() {
         />
 
         <FormControl size="small" variant="outlined" className="auth-form__input">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-password">{t("authenfication.registration.password")}</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
@@ -105,7 +111,7 @@ function Registration() {
         <TextField
           type="password"
           size="small"
-          label="Confirm password"
+          label={t("authenfication.registration.confirm")}
           variant="outlined"
           className="auth-form__input"
           required
@@ -120,10 +126,10 @@ function Registration() {
           style={{ marginRight: 15 }}
           disabled={disableSubmit}
         >
-          Create
+          {t("authenfication.registration.create")}
         </Button>
-        <span style={{ marginRight: 10 }}>Or</span>
-        <Link to="/login">Login</Link>
+        <span style={{ marginRight: 10 }}>{t("authenfication.registration.or")}</span>
+        <Link to="/login">{t("authenfication.registration.login")}</Link>
 
         {errorMessage && <div className="error-message">{errorMessage}</div>}
         <Button
@@ -133,7 +139,7 @@ function Registration() {
         onClick={() => navigate("/")}
         disableElevation
       >
-        Continue without registration
+        {t("authenfication.registration.noLogin")}
       </Button>
       </Paper>
     </div>

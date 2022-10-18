@@ -15,7 +15,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import usersService from "../../service/users.service";
 import "./auth.css";
 
+import {useTranslation} from "react-i18next";
+import "../../tranlations/i18next";
+
 function Login({ setCurrentUser }) {
+
+  const {t} = useTranslation();
+
   const { register, handleSubmit } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -45,7 +51,7 @@ function Login({ setCurrentUser }) {
 
         <TextField
           size="small"
-          label="Email"
+          label={t("authenfication.login.email")}
           variant="outlined"
           className="auth-form__input"
           autoComplete="off"
@@ -55,7 +61,7 @@ function Login({ setCurrentUser }) {
         />
 
         <FormControl size="small" variant="outlined" className="auth-form__input">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-password">{t("authenfication.login.password")}</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
@@ -73,7 +79,7 @@ function Login({ setCurrentUser }) {
                 </IconButton>
               </InputAdornment>
             }
-            label="Password"
+            label={t("authenfication.login.password")}
           />
         </FormControl>
 
@@ -84,10 +90,10 @@ function Login({ setCurrentUser }) {
           style={{ marginRight: 15 }}
           disabled={disableSubmit}
         >
-          Login
+          {t("authenfication.login.login")}
         </Button>
-        <span style={{ marginRight: 10 }}>Or</span>
-        <Link to="/registration">Create new</Link>
+        <span style={{ marginRight: 10 }}>{t("authenfication.login.or")}</span>
+        <Link to="/registration">{t("authenfication.login.new")}</Link>
 
         {errorMessage && <div className="error-message">{errorMessage}</div>}
 
@@ -98,7 +104,7 @@ function Login({ setCurrentUser }) {
         onClick={() => navigate("/")}
         disableElevation
       >
-        Continue without authentification
+        {t("authenfication.login.noLogin")}
       </Button>
       </Paper>
     </div>

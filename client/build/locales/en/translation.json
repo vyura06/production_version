@@ -1,0 +1,64 @@
+{
+    "main":{
+        "top5": "Top 5:",
+        "lastAdded":"Last:",
+        "noData": "No data",
+        "tags": "Tags cloud",
+        "search":"Search"
+    },
+    
+    "columns":{
+        "name":"Name",
+        "topic":"Topic",
+        "author":"Author",
+        "itemsCount":"Items count",
+        "created":"Created",
+        "link":"Link"
+    },
+
+    "translations":{
+        "lng":"En",
+        "ru":"Ru",
+        "en":"En"
+    },
+
+    "admin":{
+        "block/unblock":"Block/Unblock",
+        "give/remove":"Give/remove admin status",
+        "delete":"Delete selected users",
+        "columns":{
+            "id":"ID",
+            "lastName":"Last name",
+            "firstName":"First name",
+            "email":"Email",
+            "password":"Password",
+            "admin":"Admin",
+            "blocked":"Blocked",
+            "created":"Created",
+            "lastVisit":"Last visit"
+        }
+    },
+
+    "authenfication":{
+        "login":{
+            "password":"Password",
+            "email":"Email",
+            "login":"Login",
+            "or":"OR",
+            "new":"Create new account",
+            "noLogin":"Without authentification"
+        },
+        "registration":{
+            "lastName":"Last name",
+            "firstName":"First name",
+            "email":"Email",
+            "password":"Password",
+            "confirm":"Confirm password",
+            "create":"Create",
+            "or":"OR",
+            "login":"Login",
+            "noLogin":"Continue without authentification"
+        }
+    }
+
+}

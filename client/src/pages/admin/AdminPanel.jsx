@@ -9,7 +9,13 @@ import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import usersService from "../../service/users.service";
 import "./admin.css";
 
+import {useTranslation} from "react-i18next";
+import "../../tranlations/i18next";
+
 function AdminPanel({ currentUser, setCurrentUser }) {
+
+  const {t} = useTranslation();
+
   const [users, setUsers] = useState([]);
   const [selectedUsers, setSelectedUsers] = useState([]);
   const navigate = useNavigate();
@@ -44,18 +50,18 @@ function AdminPanel({ currentUser, setCurrentUser }) {
   const getBoleanFormat = (value) => value ? "✔" : "✖";
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 80 },
-    { field: 'last_name', headerName: 'Last name', width: 130 },
-    { field: 'first_name', headerName: 'First name', width: 130 },
-    { field: 'email', headerName: 'Email', width: 130 },
-    { field: 'password', headerName: 'Password', width: 130 },
-    { field: 'is_admin', headerName: 'Admin', width: 80,
+    { field: 'id', headerName: t("admin.columns.id"), width: 80 },
+    { field: 'last_name', headerName: t("admin.columns.lastName"), width: 130 },
+    { field: 'first_name', headerName: t("admin.columns.firstName"), width: 130 },
+    { field: 'email', headerName: t("admin.columns.email"), width: 130 },
+    { field: 'password', headerName: t("admin.columns.password"), width: 130 },
+    { field: 'is_admin', headerName: t("admin.columns.admin"), width: 80,
       valueGetter: (params) => getBoleanFormat(params.row.is_admin) },
-    { field: 'is_blocked', headerName: 'Blocked', width: 80,
+    { field: 'is_blocked', headerName: t("admin.columns.blocked"), width: 80,
       valueGetter: (params) => getBoleanFormat(params.row.is_blocked) },
-    { field: 'created_date', headerName: 'Created', width: 200,
+    { field: 'created_date', headerName: t("admin.columns.created"), width: 200,
       valueGetter: (params) => getDateFormat(params.row.created_date)},
-    { field: 'last_visit', headerName: 'Last visit', width: 200,
+    { field: 'last_visit', headerName: t("admin.columns.lastVisit"), width: 200,
     valueGetter: (params) => getDateFormat(params.row.last_visit) },
   ];
 
@@ -137,19 +143,19 @@ function AdminPanel({ currentUser, setCurrentUser }) {
               <ListItemIcon>
                 <BlockIcon fontSize="small" />
               </ListItemIcon>
-              <ListItemText>Block/Unblock users</ListItemText>
+              <ListItemText>{t("admin.block/unblock")}</ListItemText>
             </MenuItem>
             <MenuItem onClick={handleChangeAdminStatus}>
               <ListItemIcon>
                 <SupervisorAccountIcon fontSize="small" />
               </ListItemIcon>
-              <ListItemText>Give/remove admin status</ListItemText>
+              <ListItemText>{t("admin.give/remove")}</ListItemText>
             </MenuItem>
             <MenuItem onClick={handleDeleteUsers}>
               <ListItemIcon>
                 <DeleteIcon fontSize="small" />
               </ListItemIcon>
-              <ListItemText>Delete selected users</ListItemText>
+              <ListItemText>{t("admin.delete")}</ListItemText>
             </MenuItem>
           </Menu>
         </div>

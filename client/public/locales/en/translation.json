@@ -65,7 +65,7 @@
         
         "info":"Info",
         "goItem":"Go to item",
-        "greateItem":"Create item",
+        "createItem":"Create item",
         "editItem":"Edit selected item",
         "deleteItem":"Delete selected item",
         "noItem":"There are no items",

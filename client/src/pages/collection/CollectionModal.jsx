@@ -11,7 +11,13 @@ import { Checkbox } from "@mui/material";
 import tagsService from "../../service/tags.service";
 import "./collection.css";
 
+import {useTranslation} from "react-i18next";
+import "../../tranlations/i18next";
+
 function CollectionModal(props) {
+
+  const {t} = useTranslation();
+
   const {
     optionalFields,
     openModal,
@@ -123,9 +129,9 @@ function CollectionModal(props) {
   return (
     <Dialog open={openModal} onClose={(event) => closeModal(event)}>
       {editItem ? (
-        <DialogTitle>Edit item</DialogTitle>
+        <DialogTitle>{t("collection.modal.editItem")}</DialogTitle>
       ) : (
-        <DialogTitle>New item</DialogTitle>
+        <DialogTitle>{t("collection.modal.new")}</DialogTitle>
       )}
       <DialogContent className="item__modal">
         <form onSubmit={onSubmit}>
@@ -133,7 +139,7 @@ function CollectionModal(props) {
             <TextField
               autoFocus
               margin="dense"
-              label="Item name"
+              label={t("collection.modal.nameItem")}
               type="text"
               fullWidth
               size="small"
@@ -154,8 +160,8 @@ function CollectionModal(props) {
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label="Tags"
-                  placeholder="Interesting"
+                  label={t("collection.modal.tags")}
+                  placeholder={t("collection.modal.intr")}
                 />
               )}
             />
@@ -203,7 +209,7 @@ function CollectionModal(props) {
         </form>
     </DialogContent>
       <DialogActions>
-        <Button onClick={(event) => closeModal(event)} disabled={disabledForm}>Cancel</Button>
+        <Button onClick={(event) => closeModal(event)} disabled={disabledForm}>{t("collection.modal.cancel")}</Button>
         <Button onClick={handleSubmitButton} disabled={disabledForm}>
           {editItem ? "Edit" : "Create"}
         </Button>

@@ -59,6 +59,40 @@
             "login":"Login",
             "noLogin":"Continue without authentification"
         }
+    },
+
+    "collection":{
+        
+        "info":"Info",
+        "goItem":"Go to item",
+        "greateItem":"Create item",
+        "editItem":"Edit selected item",
+        "deleteItem":"Delete selected item",
+        "noItem":"There are no items",
+        
+        "columns":{
+            "id":"ID",
+            "name":"Name",
+            "tags":"Tags",
+            "created":"Created",
+            "lastEdit":"Last edit",
+            "topic":"Topic",
+            "author":"Author",
+            "itemsCount":"Items count",
+            "description":"Description"
+        },
+
+        "modal":{
+            "editItem":"Edit item",
+            "new":"New item",
+            "nameItem":"Item name",
+            "tags":"Tags",
+            "intr":"Intresting",
+            "":"",
+            "":"",
+            "":"",
+            "cancel":"Cancel"
+        }
     }
 
 }

@@ -11,7 +11,13 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import itemsService from "../../service/items.service";
 import "./collection.css";
 
+import {useTranslation} from "react-i18next";
+import "../../tranlations/i18next";
+
 function Collection({ currentUser }) {
+
+  const {t} = useTranslation();
+
   const location = useLocation();
   const navigate = useNavigate();
   const collection = location.state.collection;
@@ -55,11 +61,11 @@ function Collection({ currentUser }) {
   }, []);
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 90 },
-    { field: 'name', headerName: 'Name', width: 250 },
+    { field: 'id', headerName: t("collection.columns.id"), width: 90 },
+    { field: 'name', headerName: t("collection.columns.name"), width: 250 },
     {
       field: 'tags',
-      headerName: 'Tags',
+      headerName: t("collection.columns.tags"),
       sortable: false,
       width: 250,
       renderCell: (params) => (
@@ -68,11 +74,11 @@ function Collection({ currentUser }) {
         ))
       ),
     },
-    { field: 'created_date', headerName: 'Created', width: 200,
+    { field: 'created_date', headerName: t("collection.columns.created"), width: 200,
       valueGetter: (params) =>
         new Date(params.row?.created_date).toLocaleDateString() + ' ' +
         new Date(params.row?.created_date).toLocaleTimeString()},
-    { field: 'last_edit', headerName: 'Last edit', width: 200,
+    { field: 'last_edit', headerName: t("collection.columns.lastEdit"), width: 200,
       valueGetter: (params) =>
         new Date(params.row?.last_edit).toLocaleDateString() + ' ' +
         new Date(params.row?.last_edit).toLocaleTimeString()},
@@ -80,27 +86,27 @@ function Collection({ currentUser }) {
 
   const infoFields = [
     {
-      name: "Name",
+      name: t("collection.columns.name"),
       value: name,
     },
     {
-      name: "Topic",
+      name: t("collection.columns.topic"),
       value: topic_name
     },
     {
-      name: "Author",
+      name: t("collection.columns.author"),
       value: author
     },
     {
-      name: "Items count",
+      name: t("collection.columns.itemsCount"),
       value: items.length,
     },
     {
-      name: "Created",
+      name: t("collection.columns.created"),
       value: created,
     },
     {
-      name: "Description",
+      name: t("collection.columns.description"),
       value: description,
     },
   ];
@@ -198,7 +204,7 @@ function Collection({ currentUser }) {
         )}
         <div className="collection__info">
           <div className="info__header">
-            <h1>Info</h1>
+            <h1>{t("collection.info")}</h1>
               <div>
                 <IconButton
                   id="basic-button"
@@ -222,7 +228,7 @@ function Collection({ currentUser }) {
                     <ListItemIcon>
                       <OpenInNewIcon />
                     </ListItemIcon>
-                    <ListItemText>Go to item</ListItemText>
+                    <ListItemText>{t("collection.goItem")}</ListItemText>
                   </MenuItem>
 
                   { isOwner && (
@@ -231,19 +237,19 @@ function Collection({ currentUser }) {
                         <ListItemIcon>
                           <AddIcon />
                         </ListItemIcon>
-                        <ListItemText>Create item</ListItemText>
+                        <ListItemText>{t("collection.createItem")}</ListItemText>
                       </MenuItem>),
                       (<MenuItem onClick={handleEditItem}>
                         <ListItemIcon>
                           <EditIcon fontSize="small" />
                         </ListItemIcon>
-                        <ListItemText>Edit selected item</ListItemText>
+                        <ListItemText>{t("collection.editItem")}</ListItemText>
                       </MenuItem>),
                       (<MenuItem onClick={handleDeleteItems}>
                         <ListItemIcon>
                           <DeleteIcon fontSize="small" />
                         </ListItemIcon>
-                        <ListItemText>Delete selected items</ListItemText>
+                        <ListItemText>{t("collection.deleteItem")}</ListItemText>
                       </MenuItem>)
                     ]
                   )}
@@ -270,7 +276,7 @@ function Collection({ currentUser }) {
           disableSelectionOnClick
         />
       ) : (
-        <p>There are no items.</p>
+        <p>{t("collection.noItem")}</p>
       )}
       { openModal && (
         <CollectionModal

@@ -76,14 +76,26 @@ function MainPage({ currentUser }) {
       </section>
 
       <section className="last-items">
-        <h2> {t("main.lastAdded")}</h2>
-        <div>
-          {lastItems?.length ? (
-            <ItemsTable items={lastItems} />
-          ) : (
-            <p>{t("main.nodata")}</p>
-          )}
-        </div>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography>{t("main.lastAdded")}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              <div>
+                {lastItems?.length ? (
+                  <ItemsTable items={lastItems} />
+                ) : (
+                  <p>{t("main.nodata")}</p>
+                )}
+              </div>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
       </section>
 
       <section className="tags">

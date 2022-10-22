@@ -88,11 +88,59 @@
             "nameItem":"Item name",
             "tags":"Tags",
             "intr":"Intresting",
-            "":"",
-            "":"",
-            "":"",
             "cancel":"Cancel"
         }
+    },
+
+    "item":{
+        "colName":"Collection name",
+        "tags":"Tags",
+        "lastEdit":"Last edit",
+        "created":"Created",
+        "comment":"Comment",
+        "createComment":"Create comment",
+        "send":"Send",
+        "comments":"Comments"
+    },
+
+    "profile":{
+
+        "warning":"Warning",
+        "visit":"You have no permissions to visit this page",
+        "continue":"sign up to continue!",
+        "account":"Account created:",
+        "totalLikes":"Total likes",
+        "totalCollections":"Total collections",
+        "col":"Collections",
+        "create":"Create",
+        "noItem":"There are no items.",
+
+        "columns":{
+            "name":"Name",
+            "topic":"Topic",
+            "itemsCount":"Items count",
+            "created":"Created",
+            "link":"Link",
+            "edit":"Edit",
+            "delete":"Delete"
+        },
+
+        "menu":{
+            "settings":"Account settings",
+            "another":"Add another account",
+            "admin":" Admin panel",
+            "logout":"Logout"
+        },
+
+        "modal":{
+            "edit":"Edit collection",
+            "new":"New collection",
+            "image":"Image is optional",
+            "topic":"Topic",
+            "type":"Type",
+            "add":"add field"
+        }
+
     }
 
 }

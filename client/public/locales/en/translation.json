@@ -136,6 +136,13 @@
             "edit":"Edit collection",
             "new":"New collection",
             "image":"Image is optional",
+            "loadImage":"Load image",
+            "loadCompleted":"Load completed",
+            "colName":"Collection name",
+            "field":"Field name",
+            "desc":"Description",
+            "edit2":"Edit",
+            "create":"Create",
             "topic":"Topic",
             "type":"Type",
             "add":"add field"

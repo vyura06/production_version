@@ -164,7 +164,7 @@ function ProfileModal(props) {
                 component="div"
                 startIcon={imageLoaded ? <DoneIcon color="success" /> : <AddIcon />}
               >
-                {imageLoaded ? "Load completed" : "Load image"}
+                {imageLoaded ? t("profile.modal.loadCompleted") : t("profile.modal.loadImage")}
               </Button>
               <FormHelperText>{t("profile.modal.image")}</FormHelperText>
             </label>
@@ -173,7 +173,7 @@ function ProfileModal(props) {
               <TextField
                 autoFocus
                 margin="dense"
-                label="Collection name"
+                label={t("profile.modal.colName")}
                 type="text"
                 fullWidth
                 variant="outlined"
@@ -187,7 +187,7 @@ function ProfileModal(props) {
                 <InputLabel>{t("profile.modal.topic")}</InputLabel>
                 <Select
                   disabled={disabledForm}
-                  label="Topic"
+                  label={t("profile.modal.topic")}
                   value={topic}
                   onChange={(event) => setTopic(event.target.value)}
                 >
@@ -200,7 +200,7 @@ function ProfileModal(props) {
               { optionalFields.map((field, index) => (
                 <div className="field" key={index}>
                   <TextField
-                    label="Field name"
+                    label={t("profile.modal.field")}
                     type="text"
                     variant="standard"
                     required
@@ -213,7 +213,7 @@ function ProfileModal(props) {
                     <InputLabel>{t("profile.modal.type")}</InputLabel>
                     <Select
                       disabled={disabledForm}
-                      label="Type"
+                      label={t("profile.modal.type")}
                       value={field.type_id}
                       onChange={(event) => handleChangeField("type_id", event.target.value, index)}
                     >
@@ -235,7 +235,7 @@ function ProfileModal(props) {
           </div>
 
           <TextField
-            label="Description"
+            label={t("profile.modal.desc")}
             multiline
             disabled={disabledForm}
             required
@@ -256,7 +256,7 @@ function ProfileModal(props) {
       <DialogActions>
         <Button onClick={(event) => closeModal(event)} disabled={disabledForm}>Cancel</Button>
         <Button onClick={handleSubmitButton} disabled={disabledForm}>
-          {editCollection ? "Edit" : "Create"}
+          {editCollection ? t("profile.modal.edit2") : t("profile.modal.create")}
         </Button>
       </DialogActions>
     </Dialog>

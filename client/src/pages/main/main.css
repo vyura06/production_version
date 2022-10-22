@@ -26,12 +26,12 @@
 .biggest-collections {
   position: sticky;
   top: 70px;
-  width: calc((var(--total-width) - var(--items-width)) );
+  width: calc(0.75 * var(--total-width));
 }
 
 .last-items {
   margin-top: 1.2rem;
-  width: var(--items-width);
+  width: calc(0.75 * var(--total-width));
 }
 
 .tags {

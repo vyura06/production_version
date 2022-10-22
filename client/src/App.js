@@ -1,11 +1,9 @@
 import React, { Suspense, useEffect, useState } from "react";
-// import { ThemeProvider } from '@mui/material/styles';
 import Login from "./pages/authenfication/Login";
 import Registration from "./pages/authenfication/Registration";
 import MainPage from "./pages/main/MainPage";
 import Layout from "./pages/layout/Layout";
 import Profile from "./pages/profile/Profile";
-// import theme from "./theme/theme";
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import topicsService from "./service/topics.service";
 import collectionsService from "./service/collections.service";
@@ -15,7 +13,6 @@ import './App.css';
 import AdminPanel from "./pages/admin/AdminPanel";
 
 function App() {
-  // const [currentTheme, setCurrentTheme] = useState();
   const [currentUser, setCurrentUser] = useState(null);
   const [collectionTopics, setCollectionTopics] = useState([]);
   const [fieldTypes, setFieldTypes] = useState([]);
@@ -32,10 +29,7 @@ function App() {
       .catch(err => console.log(err));
   }, []);
 
-  //  <ThemeProvider theme={currentTheme}> </ThemeProvider>
-
   return (
-    <Suspense>
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />} />
@@ -54,7 +48,6 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-    </Suspense>
   );
 }
 

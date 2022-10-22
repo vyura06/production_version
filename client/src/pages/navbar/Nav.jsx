@@ -1,5 +1,7 @@
-import React, { useTransition } from "react";
+import React, { useState } from "react";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import { Switch} from "@mui/material"
 import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -8,7 +10,6 @@ import LoginIcon from '@mui/icons-material/Login';
 import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from "react-router-dom";
 import ProfileMenu from "../profile/ProfileMenu";
-import Button from "@mui/material/Button";
 import { MenuItem, FormControl, Select, InputLabel } from "@mui/material";
 
 import "../main/main.css";
@@ -18,6 +19,9 @@ import { useTranslation } from "react-i18next";
 import "../../tranlations/i18next";
 
 function Nav({ currentUser, setCurrentUser }) {
+
+  const [currentTheme, setCurrentTheme] = useState(false);
+
   const navigate = useNavigate();
 
   const { t, i18n } = useTranslation();
@@ -26,7 +30,18 @@ function Nav({ currentUser, setCurrentUser }) {
     i18n.changeLanguage(lng);
   }
 
+  const darktheme = createTheme({
+    palette:{
+      mode: "dark",
+    },
+  });
+  
+  const lighttheme = createTheme({
+  });
+
+
   return (
+    <ThemeProvider theme={currentTheme ? darktheme : lighttheme}> 
     <Paper
       component="form"
       className="main-nav"
@@ -34,7 +49,7 @@ function Nav({ currentUser, setCurrentUser }) {
       <IconButton onClick={() => navigate("/")} sx={{ p: '10px' }} aria-label="home">
         <HomeIcon />
       </IconButton>
-
+      
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
 
       <IconButton sx={{ p: '10px' }} aria-label="search">
@@ -55,6 +70,8 @@ function Nav({ currentUser, setCurrentUser }) {
         </Select>
       </FormControl>
 
+      <Switch checked={currentTheme} onChange={()=> setCurrentTheme(!currentTheme)}/>
+
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
 
       {currentUser ? <ProfileMenu currentUser={currentUser} setCurrentUser={setCurrentUser} /> : (
@@ -62,7 +79,9 @@ function Nav({ currentUser, setCurrentUser }) {
           <LoginIcon />
         </IconButton>
       )}
+     
     </Paper>
+    </ThemeProvider>
   );
 }
 

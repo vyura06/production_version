@@ -51,7 +51,7 @@ function MainPage({ currentUser }) {
 
   return (
     <>
-
+    <div>
       <section className="biggest-collections">
         <Accordion>
           <AccordionSummary
@@ -97,7 +97,7 @@ function MainPage({ currentUser }) {
           </AccordionDetails>
         </Accordion>
       </section>
-
+      </div>
       <section className="tags">
         <h2>{t("main.tags")}</h2>
         <div>

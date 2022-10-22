@@ -26,16 +26,16 @@
 .biggest-collections {
   position: sticky;
   top: 70px;
-  width: calc((var(--total-width) - var(--items-width)) / 2);
+  width: calc((var(--total-width) - var(--items-width)) );
 }
 
 .last-items {
+  margin-top: 1.2rem;
   width: var(--items-width);
-  margin: 0 30px;
 }
 
 .tags {
   position: sticky;
   top: 70px;
-  width: calc((var(--total-width) - var(--items-width)) / 2);
+  width: calc((var(--total-width) - var(--items-width)) / 3);
 }

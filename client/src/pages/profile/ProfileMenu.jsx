@@ -17,6 +17,9 @@ import {
 } from '@mui/material/colors';
 import { useNavigate } from "react-router-dom";
 
+import {useTranslation} from "react-i18next";
+import "../../tranlations/i18next";
+
 const randomColors = [ amber, blue, blueGrey, brown, common,
   cyan, deepOrange, deepPurple, green, grey, indigo, lightBlue,
   lightGreen, lime, orange, pink, purple, red, teal, yellow
@@ -25,6 +28,9 @@ const randomIndex = ~~(Math.random() * ((randomColors.length - 1) - 0) + 0);
 const randomColor = randomColors[randomIndex];
 
 function ProfileMenu({ currentUser, setCurrentUser }) {
+
+  const {t} = useTranslation();
+
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -47,7 +53,7 @@ function ProfileMenu({ currentUser, setCurrentUser }) {
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <Tooltip title="Account settings">
+        <Tooltip title={t("profile.menu.settings")}>
           <IconButton
             onClick={handleClick}
             size="small"
@@ -78,21 +84,21 @@ function ProfileMenu({ currentUser, setCurrentUser }) {
           <ListItemIcon>
             <PersonAdd fontSize="small" />
           </ListItemIcon>
-          Add another account
+          {t("profile.menu.another")}
         </MenuItem>
         {currentUser?.is_admin && (
           <MenuItem onClick={() => navigate("/admin-panel")}>
             <ListItemIcon>
               <AdminPanelSettingsIcon fontSize="small" />
             </ListItemIcon>
-            Admin panel
+            {t("profile.menu.admin")}
           </MenuItem>
         )}
         <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          Logout
+          {t("profile.menu.logout")}
         </MenuItem>
       </Menu>
     </React.Fragment>

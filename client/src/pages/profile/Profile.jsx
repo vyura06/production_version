@@ -9,7 +9,13 @@ import collectionsService from "../../service/collections.service";
 import usersService from "../../service/users.service";
 import "./profile.css";
 
+import {useTranslation} from "react-i18next";
+import "../../tranlations/i18next";
+
 function Profile({ currentUser, topics, fieldTypes }) {
+
+  const {t} = useTranslation();
+
   const [collections, setCollections] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [editCollection, setEditCollection] = useState(null);
@@ -17,13 +23,13 @@ function Profile({ currentUser, topics, fieldTypes }) {
 
   const columns = [
     "#",
-    "Name",
-    "Topic",
-    "Items count",
-    "Created",
-    "Link",
-    "Edit",
-    "Delete"
+    t("profile.columns.name"),
+    t("profile.columns.topic"),
+    t("profile.columns.itemsCount"),
+    t("profile.columns.created"),
+    t("profile.columns.link"),
+    t("profile.columns.edit"),
+    t("profile.columns.delete")
   ];
 
   useEffect(() => {
@@ -44,8 +50,8 @@ function Profile({ currentUser, topics, fieldTypes }) {
     return (
       <>
       <Alert severity="warning" style={{ width: "100%", marginTop: 30 }}>
-        <AlertTitle>Warning</AlertTitle>
-        You have no permissions to visit this page — <strong>sign up to continue!</strong>
+        <AlertTitle>{t("profile.warning")}</AlertTitle>
+        {t("profile.visit")} — <strong>{t("profile.continue")}</strong>
       </Alert>
       </>
     );
@@ -102,25 +108,25 @@ function Profile({ currentUser, topics, fieldTypes }) {
         <Avatar sx={{ width: 200, height: 200 }} />
         <div className="user-info">
           <h1>{fullName}</h1>
-          <p style={{ textAlign: "center" }}>Account created: {created}</p>
+          <p style={{ textAlign: "center" }}>{t("profile.account")} {created}</p>
           <div className="user-info__stats">
             <div className="stats__stat">
               <Chip label={userLikes.length} color="info" icon={<FavoriteBorderIcon />} onClick={() => {}} />
-              <span>Total likes</span>
+              <span>{t("profile.totalLikes")}</span>
             </div>
             <div className="stats__stat">
               <Chip label={collections.length} color="info"
                 icon={<CollectionsBookmarkOutlinedIcon />} onClick={() => {}} />
-              <span>Total collecitons</span>
+              <span>{t("profile.totalCollections")}</span>
             </div>
           </div>
         </div>
       </div>
       <div className="collections__container">
         <header>
-          <h1>Collections</h1>
+          <h1>{t("profile.col")}</h1>
           <Button onClick={handleClickOpenModal} variant="contained" endIcon={<AddIcon />}>
-            Create
+          {t("profile.create")}
           </Button>
         </header>
         { collections.length ? (
@@ -131,7 +137,7 @@ function Profile({ currentUser, topics, fieldTypes }) {
             onRemove={handleRemoveCollection}
           />
         ) : (
-          <p>There are no items.</p>
+          <p>{t("profile.noItem")}</p>
         )}
         { openModal && (
           <ProfileModal

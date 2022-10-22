@@ -10,7 +10,13 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import itemsService from "../../service/items.service";
 import "./item.css";
 
+import {useTranslation} from "react-i18next";
+import "../../tranlations/i18next";
+
 function Item({ currentUser }) {
+
+  const {t} = useTranslation();
+
   const location = useLocation();
   const [currentUserLike, setCurrentUserLike] = useState(null);
   const [likes, setLikes] = useState([]);
@@ -74,11 +80,11 @@ function Item({ currentUser }) {
 
   const infoFields = [
     {
-      name: "Collection name",
+      name: t("item.colName"),
       value: collection_name
     },
     {
-      name: "Tags",
+      name: t("item.tags"),
       value: (
         <Stack direction="row" spacing={1}>
           {tags.map((tag, index) => (
@@ -114,11 +120,11 @@ function Item({ currentUser }) {
 
     infoFields.push(
       {
-        name: "Last edit",
+        name: t("item.lastEdit"),
         value: lastEdit
       },
       {
-        name: "Created",
+        name: t("item.created"),
         value: created
       },
     )
@@ -201,7 +207,7 @@ function Item({ currentUser }) {
         {currentUser && (
           <div>
             <Button aria-describedby={id} variant="contained" onClick={handleOpenPopover}>
-              Create comment
+              {t("item.createComment")}
             </Button>
             <Popover
               id={popupId}
@@ -216,7 +222,7 @@ function Item({ currentUser }) {
             >
               <Stack spacing={2} sx={{ m: 2 }}>
                 <TextField
-                  label="Comment"
+                  label={t("item.comment")}
                   error={errorComment}
                   multiline
                   rows={3}
@@ -230,14 +236,14 @@ function Item({ currentUser }) {
                   onClick={handleCreateComment}
                   disabled={disabled}
                 >
-                  Send
+                  {t("item.send")}
                 </Button>
               </Stack>
             </Popover>
           </div>
         )}
       </div>
-      <Divider>Comments</Divider>
+      <Divider>{t("item.comments")}</Divider>
       <Stack className="item__comments" spacing={2} alignItems="flex-start">
         { comments.map((comment, index) => (
           <Paper key={index} className="comments__comment">

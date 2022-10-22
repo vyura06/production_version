@@ -19,7 +19,13 @@ import imageService from "../../service/image.service";
 import DoneIcon from '@mui/icons-material/Done';
 import "./profile.css";
 
+import {useTranslation} from "react-i18next";
+import "../../tranlations/i18next";
+
 function ProfileModal(props) {
+
+  const {t} = useTranslation();
+
   const {
     currentUser,
     openModal,
@@ -142,9 +148,9 @@ function ProfileModal(props) {
   return (
     <Dialog open={openModal} onClose={(event) => closeModal(event)}>
       {editCollection ? (
-        <DialogTitle>Edit collection</DialogTitle>
+        <DialogTitle>{t("profile.modal.edit")}</DialogTitle>
       ) : (
-        <DialogTitle>New collection</DialogTitle>
+        <DialogTitle>{t("profile.modal.new")}</DialogTitle>
       )}
       <DialogContent className="collection-modal">
         <form onSubmit={onSubmit}>
@@ -160,7 +166,7 @@ function ProfileModal(props) {
               >
                 {imageLoaded ? "Load completed" : "Load image"}
               </Button>
-              <FormHelperText>Image is optional</FormHelperText>
+              <FormHelperText>{t("profile.modal.image")}</FormHelperText>
             </label>
 
             <div className="collection-info__fields">
@@ -178,7 +184,7 @@ function ProfileModal(props) {
                 onInput={event => setName(event.target.value)}
               />
               <FormControl sx={{ mt: 2, mb: 2, minWidth: 120 }} size="small">
-                <InputLabel>Topic</InputLabel>
+                <InputLabel>{t("profile.modal.topic")}</InputLabel>
                 <Select
                   disabled={disabledForm}
                   label="Topic"
@@ -204,7 +210,7 @@ function ProfileModal(props) {
                   />
 
                   <FormControl sx={{ ml: 2, mr: 1, width: 100 }} size="small">
-                    <InputLabel>Type</InputLabel>
+                    <InputLabel>{t("profile.modal.type")}</InputLabel>
                     <Select
                       disabled={disabledForm}
                       label="Type"
@@ -223,7 +229,7 @@ function ProfileModal(props) {
               )) }
 
               <Button disabled={disabledForm} onClick={handleAddField} size="small" startIcon={<AddIcon />}>
-                add field
+              {t("profile.modal.add")}
               </Button>
             </div>
           </div>

@@ -47,7 +47,7 @@ function Login({ setCurrentUser }) {
 
   return (
     <div className="auth-form-container">
-      <Paper component="form" elevation={3} onSubmit={handleSubmit(onSubmit)}>
+      <Paper style={{ backgroundColor: "#BCCEF8" }} component="form" elevation={3} onSubmit={handleSubmit(onSubmit)}>
 
         <TextField
           size="small"
@@ -92,12 +92,13 @@ function Login({ setCurrentUser }) {
         >
           {t("authenfication.login.login")}
         </Button>
-        <span style={{ marginRight: 10 }}>{t("authenfication.login.or")}</span>
-        <Link to="/registration">{t("authenfication.login.new")}</Link>
+        <span style={{ marginRight: 10, color:"white" }}>{t("authenfication.login.or")}</span>
+        <Link className="link" to="/registration">{t("authenfication.login.new")}</Link>
 
         {errorMessage && <div className="error-message">{errorMessage}</div>}
 
         <Button
+        color="secondary"
         variant="contained"
         className="continue-button"
         endIcon={<ArrowRightAltIcon />}

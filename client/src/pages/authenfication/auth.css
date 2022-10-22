@@ -12,22 +12,20 @@
 .auth-form-container > form {
   width: 100%;
   padding: 1.8rem;
-}
-
-.auth-form-container h1 {
-  text-align: center;
-  margin-bottom: 1.8rem;
+  background: #BCCEF8!important;
 }
 
 .auth-form__input {
   width: 100%;
   margin-bottom: 1.2rem!important;
+  background: #BCCEF8!important;
 }
 
 .auth-form__submit-button {
   align-self: flex-start;
   margin-bottom: 0.5rem!important;
   width: 10rem;
+  background: #98A8F8!important;
 }
 
 .auth-divider {
@@ -39,8 +37,13 @@
   color: tomato;
 }
 
+.link{
+  background: #98A8F8!important;
+}
+
 .continue-button {
   width: 100%;
   margin-top: 1.5rem!important;
-  background: #b9b9b9!important;
+  background: #98A8F8!important;
 }
+

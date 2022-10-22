@@ -12,10 +12,16 @@ import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "../profile/profile.css";
 
+import {useTranslation} from "react-i18next";
+import "../../tranlations/i18next";
+
 function ItemsTable({ items }) {
+
+  const {t} = useTranslation();
+
   const navigate = useNavigate();
 
-  const columns = ["#", "Name", "Collection name", "Tags", "Last edit", "Created", "Link"];
+  const columns = ["#", t("columns.name"), t("columns.colName"), t("columns.tags"), t("columns.lastEdit"), t("columns.created"), t("columns.link")];
 
   const handleItemLink = (item) => {
     navigate(`/collections/${item.collection_id}/items/${item.id}`, { state: { item } });

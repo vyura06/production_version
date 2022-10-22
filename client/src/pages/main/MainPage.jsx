@@ -19,12 +19,12 @@ function MainPage({ currentUser }) {
 
   const collectionColumns = [
     "#",
-    "Name",
-    "Topic",
-    "Author",
-    "Items count",
-    "Created",
-    "Link",
+    t("columns.name"),
+    t("columns.topic"),
+    t("columns.author"),
+    t("columns.itemsCount"),
+    t("columns.created"),
+    t("columns.link"),
   ];
 
   useEffect(() => {

@@ -9,6 +9,9 @@
     
     "columns":{
         "name":"Name",
+        "colName":"Collection name",
+        "tags":"Tags",
+        "lastEdit":"Last edit",
         "topic":"Topic",
         "author":"Author",
         "itemsCount":"Items count",
@@ -145,7 +148,8 @@
             "create":"Create",
             "topic":"Topic",
             "type":"Type",
-            "add":"add field"
+            "add":"add field",
+            "cancel":"Cancel"
         }
 
     }

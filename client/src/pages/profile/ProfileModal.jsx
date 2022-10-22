@@ -254,7 +254,7 @@ function ProfileModal(props) {
         </form>
     </DialogContent>
       <DialogActions>
-        <Button onClick={(event) => closeModal(event)} disabled={disabledForm}>Cancel</Button>
+        <Button onClick={(event) => closeModal(event)} disabled={disabledForm}>{t("profile.modal.cancel")}</Button>
         <Button onClick={handleSubmitButton} disabled={disabledForm}>
           {editCollection ? t("profile.modal.edit2") : t("profile.modal.create")}
         </Button>

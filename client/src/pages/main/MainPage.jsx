@@ -5,9 +5,14 @@ import itemsService from "../../service/items.service";
 import tagsService from "../../service/tags.service";
 import CollectionsTable from "../table/CollectionsTable";
 import ItemsTable from "../table/ItemsTable";
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import "./main.css";
 
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import "../../tranlations/i18next";
 
 function MainPage({ currentUser }) {
@@ -15,7 +20,7 @@ function MainPage({ currentUser }) {
   const [lastItems, setLastItems] = useState([]);
   const [tags, setTags] = useState([]);
 
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   const collectionColumns = [
     "#",
@@ -46,21 +51,34 @@ function MainPage({ currentUser }) {
 
   return (
     <>
+
       <section className="biggest-collections">
-        <h2>{t("main.top5")}</h2>
-        <div>
-          { biggestCollections?.length ? (
-            <CollectionsTable columns={collectionColumns} collections={biggestCollections} readOnly={true} />
-          ) : (
-            <p>{t("main.nodata")}</p>
-          )}
-        </div>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>{t("main.top5")}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              <div>
+                {biggestCollections?.length ? (
+                  <CollectionsTable columns={collectionColumns} collections={biggestCollections} readOnly={true} />
+                ) : (
+                  <p>{t("main.nodata")}</p>
+                )}
+              </div>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
       </section>
 
       <section className="last-items">
         <h2> {t("main.lastAdded")}</h2>
         <div>
-          { lastItems?.length ? (
+          {lastItems?.length ? (
             <ItemsTable items={lastItems} />
           ) : (
             <p>{t("main.nodata")}</p>
@@ -71,7 +89,7 @@ function MainPage({ currentUser }) {
       <section className="tags">
         <h2>{t("main.tags")}</h2>
         <div>
-          { tags?.length ? (
+          {tags?.length ? (
             tags.map((tag, index) => (
               <Button size="small" key={index} color="info" variant="outlined" sx={{ mr: 1, mb: 1, borderRadius: 40 }}>
                 {tag.name}

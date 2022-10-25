@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridToolbarContainer, GridToolbarExport } from '@mui/x-data-grid';
 import { Chip, IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import CollectionModal from "./CollectionModal";
@@ -14,11 +14,20 @@ import "./collection.css";
 import {useTranslation} from "react-i18next";
 import "../../tranlations/i18next";
 
+function CustomToolbar() {
+  return (
+    <GridToolbarContainer>
+      <GridToolbarExport />
+    </GridToolbarContainer>
+  );
+}
+
 function Collection({ currentUser }) {
 
   const {t} = useTranslation();
 
   const location = useLocation();
+
   const navigate = useNavigate();
   const collection = location.state.collection;
   const {
@@ -274,6 +283,7 @@ function Collection({ currentUser }) {
           checkboxSelection
           onSelectionModelChange={handleSelection}
           disableSelectionOnClick
+          components={{ Toolbar: CustomToolbar }}
         />
       ) : (
         <p>{t("collection.noItem")}</p>

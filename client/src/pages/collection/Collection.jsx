@@ -284,6 +284,7 @@ function Collection({ currentUser }) {
           onSelectionModelChange={handleSelection}
           disableSelectionOnClick
           components={{ Toolbar: CustomToolbar }}
+          componentsProps={{ toolbar: { csvOptions: { allColumns: true } } }}
         />
       ) : (
         <p>{t("collection.noItem")}</p>

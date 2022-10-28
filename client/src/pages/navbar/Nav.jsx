@@ -15,14 +15,12 @@ import { MenuItem, FormControl, Select, InputLabel } from "@mui/material";
 
 import "../main/main.css";
 
-import i18n from 'i18next'
 import { useTranslation } from "react-i18next";
 import "../../tranlations/i18next";
 
 function Nav({ currentUser, setCurrentUser }) {
 
   const [currentTheme, setCurrentTheme] = useState(false);
-  const [items, setItems] = useState("");
 
   const navigate = useNavigate();
 

@@ -16,16 +16,16 @@ import "./main.css";
 import { useTranslation } from "react-i18next";
 import "../../tranlations/i18next";
 
-function MainPage({ currentUser }, {items}) {
+function MainPage({ currentUser }) {
   const [biggestCollections, setBiggestCollections] = useState([]);
   const [lastItems, setLastItems] = useState([]);
   const [tags, setTags] = useState([]);
 
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
-  const handleItemLink = (item) => {
-    navigate(`/collections/${item.collection_id}/items/${item.id}`, { state: { item } });
-  }
+  //const handleItemLink = (item) => {
+   // navigate(`/collections/${item.collection_id}/items/${item.id}`, { state: { item } });
+  //}
 
   const { t } = useTranslation();
 
@@ -108,19 +108,17 @@ function MainPage({ currentUser }, {items}) {
       <section className="tags">
         <h2>{t("main.tags")}</h2>
         <div>
-        {items.map((item) => ( 
-          <div>
-          {item.tags?.length ? (
-            item.tags.map((tag, i) => (
-              <Button onClick={() => handleItemLink(item)} size="small" key={i} color="info" variant="outlined" sx={{ mr: 1, mb: 1, borderRadius: 40 }}>
+          {tags?.length ? (
+            tags.map((tag, i) => (
+              
+              <Button size="small" key={i} color="info" variant="outlined" sx={{ mr: 1, mb: 1, borderRadius: 40 }}>
                 {tag.name}
               </Button>
+
             ))
           ) : (
             <p>{t("main.nodata")}</p>
           )}
-          </div>
-          ))}
         </div>
       </section>
     </>

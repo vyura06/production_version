@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   position: fixed;
-  padding: 5px 10px;
+  padding: 0,3125rem 0,625rem;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -15,17 +15,17 @@
   justify-content: space-between;
 
   width: var(--total-width);
-  padding: 0 30px;
-  margin: 55px auto 0;
+  padding: 0 1,875rem;
+  margin: 3,4375rem auto 0;
 }
 
 .main-container > section > .MuiPaper-root {
-  padding: 10px 0;
+  padding: 10,625rem 0;
 }
 
 .biggest-collections {
   position: sticky;
-  top: 70px;
+  top: 4,375rem;
   width: calc(0.75 * var(--total-width));
 }
 
@@ -36,6 +36,6 @@
 
 .tags {
   position: sticky;
-  top: 70px;
+  top: 4,375rem;
   width: calc((var(--total-width) - var(--items-width)) / 3);
 }

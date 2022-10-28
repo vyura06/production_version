@@ -7,7 +7,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-//import Chip from '@mui/material/Chip';
 import { Button } from "@mui/material";
 import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -53,9 +52,8 @@ function ItemsTable({ items }) {
               <TableCell align="left">{item.collection_name}</TableCell>
 
               <TableCell align="left">{item.tags.map((tag, i) => (
-                
-                <Button onClick={() => handleItemLink(item)} size="small" label={tag.name} key={i} variant="outlined" color="info">
-                  
+                <Button onClick={() => handleItemLink(item)} size="small" key={i} color="info" variant="outlined" sx={{ mr: 1, mb: 1, borderRadius: 40 }}>
+                {tag.name}
                 </Button>
               ))}</TableCell>
 

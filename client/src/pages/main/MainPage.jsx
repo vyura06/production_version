@@ -10,15 +10,22 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useNavigate } from "react-router-dom";
 import "./main.css";
 
 import { useTranslation } from "react-i18next";
 import "../../tranlations/i18next";
 
-function MainPage({ currentUser }) {
+function MainPage({ currentUser }, {items}) {
   const [biggestCollections, setBiggestCollections] = useState([]);
   const [lastItems, setLastItems] = useState([]);
   const [tags, setTags] = useState([]);
+
+  const navigate = useNavigate();
+
+  const handleItemLink = (item) => {
+    navigate(`/collections/${item.collection_id}/items/${item.id}`, { state: { item } });
+  }
 
   const { t } = useTranslation();
 
@@ -101,15 +108,19 @@ function MainPage({ currentUser }) {
       <section className="tags">
         <h2>{t("main.tags")}</h2>
         <div>
-          {tags?.length ? (
-            tags.map((tag, index) => (
-              <Button size="small" key={index} color="info" variant="outlined" sx={{ mr: 1, mb: 1, borderRadius: 40 }}>
+        {items.map((item) => ( 
+          <div>
+          {item.tags?.length ? (
+            item.tags.map((tag, i) => (
+              <Button onClick={() => handleItemLink(item)} size="small" key={i} color="info" variant="outlined" sx={{ mr: 1, mb: 1, borderRadius: 40 }}>
                 {tag.name}
               </Button>
             ))
           ) : (
             <p>{t("main.nodata")}</p>
           )}
+          </div>
+          ))}
         </div>
       </section>
     </>

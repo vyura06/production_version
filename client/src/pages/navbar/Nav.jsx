@@ -11,6 +11,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from "react-router-dom";
 import ProfileMenu from "../profile/ProfileMenu";
 import { MenuItem, FormControl, Select, InputLabel } from "@mui/material";
+//import Search from "../search/Search";
 
 import "../main/main.css";
 
@@ -21,6 +22,7 @@ import "../../tranlations/i18next";
 function Nav({ currentUser, setCurrentUser }) {
 
   const [currentTheme, setCurrentTheme] = useState(false);
+  const [items, setItems] = useState("");
 
   const navigate = useNavigate();
 
@@ -38,7 +40,6 @@ function Nav({ currentUser, setCurrentUser }) {
   
   const lighttheme = createTheme({
   });
-
 
   return (
     <ThemeProvider theme={currentTheme ? darktheme : lighttheme}> 

@@ -52,7 +52,7 @@ function ItemsTable({ items }) {
               <TableCell align="left">{item.collection_name}</TableCell>
 
               <TableCell align="left">{item.tags.map((tag, i) => (
-                <Chip label={tag.name} key={i} variant="outlined" />
+                <Chip onClick={() => handleItemLink(item)} label={tag.name} key={i} variant="outlined" />
               ))}</TableCell>
 
               <TableCell align="left">{getDate(item.last_edit)}</TableCell>

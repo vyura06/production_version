@@ -1,3 +1,4 @@
+
 .auth-form-container {
   display: flex;
   position: relative;
@@ -46,4 +47,26 @@
   margin-top: 1.5rem!important;
   background: #98A8F8!important;
 }
+
+
+/*1200*/
+@media screen and (max-width: 1200px){
+  
+}
+
+/*992*/
+@media screen and  (max-width: 992px){
+  
+}
+
+/*768*/
+@media screen and (max-width: 768px){
+  
+}
+
+/*480*/
+@media screen and (max-width: 480px){
+
+}
+
 

@@ -46,9 +46,9 @@ function Login({ setCurrentUser }) {
   const handleShowPassword = () => setShowPassword(!showPassword);
 
   return (
-    <div className="auth-form-container">
-      <Paper style={{ backgroundColor: "#BCCEF8" }} component="form" elevation={3} onSubmit={handleSubmit(onSubmit)}>
 
+    <div className="auth-form-container">
+      <Paper className="paper" style={{ backgroundColor: "#BCCEF8" }} component="form" elevation={3} onSubmit={handleSubmit(onSubmit)}>
         <TextField
           size="small"
           label={t("authenfication.login.email")}

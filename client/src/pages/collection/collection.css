@@ -1,23 +1,24 @@
+
 .collection__container {
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 3,125rem;
+  margin-top: 50px;
   width: var(--total-width);
 }
 
 .collection__container > .items__container {
-  min-height: 31,25rem;
+  min-height: 500px;
 }
 
 .collection__header {
   display: flex;
   flex-direction: row;
-  margin-bottom: 1,25rem;
+  margin-bottom: 20px;
 }
 
 .collection__header > img {
-  margin-right: 1,875rem;
+  margin-right: 30px;
 }
 
 .collection__info {
@@ -27,7 +28,7 @@
 }
 
 .collection__info > h1 {
-  margin-top: 0,625;
+  margin-top: 10px;
   font-size: 1.8em;
 }
 
@@ -41,17 +42,17 @@
 .collection__info .info__field {
   display: flex;
   flex-direction: row;
-  padding: 0,3125rem 0;
+  padding: 5px 0;
 }
 
 .collection__info .info__field > p {
   margin: 0;
-  width: calc(100% - 7,1875rem);
+  width: calc(100% - 115px);
 }
 
 .collection__info .field__header {
-  width: 7,1875rem;
-  padding-right: 1,875rem;
+  width: 115px;
+  padding-right: 30px;
   opacity: 0.5;
   user-select: none;
   line-height: 1;
@@ -59,6 +60,6 @@
 }
 
 .item__modal {
-  min-width: 18,75rem;
-  width: 28,125rem;
+  min-width: 300px;
+  width: 450px;
 }

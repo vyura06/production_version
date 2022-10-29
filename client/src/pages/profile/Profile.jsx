@@ -131,6 +131,7 @@ function Profile({ currentUser, topics, fieldTypes }) {
         </header>
         { collections.length ? (
           <CollectionsTable
+            style={{backgroundColor:"#BCCEF8"}}
             columns={columns}
             collections={collections}
             onEdit={handleEditCollection}
@@ -141,6 +142,7 @@ function Profile({ currentUser, topics, fieldTypes }) {
         )}
         { openModal && (
           <ProfileModal
+            style={{backgroundColor:"#BCCEF8"}}
             currentUser={currentUser}
             fieldTypes={fieldTypes}
             topics={topics}

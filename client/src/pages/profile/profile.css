@@ -1,7 +1,8 @@
+
 .profile__container {
   display: flex;
   position: relative;
-  margin-top: 3,125rem;
+  margin-top: 50px;
   width: var(--total-width);
 }
 
@@ -20,19 +21,19 @@
   flex-direction: column;
   align-items: center;
   width: calc(var(--items-width) / 2);
-  margin-right: 2,5rem;
+  margin-right: 40px;
 }
 
 .user-info > h1 {
   font-size: 1.8em;
   text-align: center;
-  margin-bottom: 0,3125rem;
+  margin-bottom: 5px;
 }
 
 .last-visit {
   margin-top: 0;
   text-align: center;
-  margin-bottom: 1,5625rem;
+  margin-bottom: 25px;
 }
 
 .user-info__stats {
@@ -49,26 +50,26 @@
 
 .user-info__stats >
 .stats__stat:not(.stats__stat:last-child) {
-  margin-right: 0,9375rem;
+  margin-right: 15px;
 }
 
 .stats__stat > span {
   margin: 0;
-  margin-top: 0,3125rem;
+  margin-top: 5px;
   font-size: 1.1em;
 }
 
 .collection-info {
   display: flex;
   flex-direction: row;
-  margin-bottom: 0,9375rem;
+  margin-bottom: 15px;
 }
 
 .collection-info > label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 1,25rem;
+  margin-right: 20px;
 }
 
 .collection-info > label > .MuiButtonBase-root {
@@ -76,8 +77,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 9,375rem;
-  height: 13,125rem;
+  width: 150px;
+  height: 210px;
 }
 
 .collection-info > label > .MuiButtonBase-root * {
@@ -93,10 +94,10 @@
 .field {
   display: flex;
   align-items: center;
-  margin-bottom: 0,625rem;
+  margin-bottom: 10px;
 }
 
 .collection-modal {
-  min-width: 18,75rem;
-  width: 34,375rem;
+  min-width: 300px;
+  width: 550px;
 }

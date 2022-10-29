@@ -1,3 +1,4 @@
+
 .item__container {
   position: relative;
   margin: 3,125rem 0;
@@ -52,7 +53,7 @@
 }
 
 .item__container > .MuiDivider-withChildren {
-  margin: 0,625rem 0 1,25rem;
+  margin: 10px 0 20px;
   color: #aaa;
   user-select: none;
   font-size: 0.9em;
@@ -67,7 +68,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0,625rem 1,25rem;
+  padding: 10px 20px;
 }
 
 .comments__comment > p {

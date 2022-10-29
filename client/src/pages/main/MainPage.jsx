@@ -60,7 +60,7 @@ function MainPage({ currentUser }) {
     <>
     <div>
       <section className="biggest-collections">
-        <Accordion>
+        <Accordion style={{backgroundColor:"#BCCEF8"}}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
@@ -83,7 +83,7 @@ function MainPage({ currentUser }) {
       </section>
 
       <section className="last-items">
-        <Accordion>
+        <Accordion style={{backgroundColor:"#BCCEF8"}}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"

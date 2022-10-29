@@ -51,7 +51,7 @@ function ProfileMenu({ currentUser, setCurrentUser }) {
   }
 
   return (
-    <React.Fragment>
+    <React.Fragment style={{backgroundColor:"#BCCEF8"}}>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title={t("profile.menu.settings")}>
           <IconButton

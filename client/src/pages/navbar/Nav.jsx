@@ -37,6 +37,9 @@ function Nav({ currentUser, setCurrentUser }) {
   });
   
   const lighttheme = createTheme({
+    palette:{
+      mode: "light",
+    },
   });
 
   return (

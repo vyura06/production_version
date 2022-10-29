@@ -3,6 +3,11 @@ import { Alert, AlertTitle, Avatar, Chip, Button } from "@mui/material";
 import CollectionsBookmarkOutlinedIcon from '@mui/icons-material/CollectionsBookmarkOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddIcon from '@mui/icons-material/Add';
+import {
+  amber, blue, blueGrey, brown, common, cyan,
+  deepOrange, deepPurple, green, grey, indigo, lightBlue,
+  lightGreen, lime, orange, pink, purple, red, teal, yellow
+} from '@mui/material/colors';
 import ProfileModal from "../profile/ProfileModal";
 import CollectionsTable from "../table/CollectionsTable";
 import collectionsService from "../../service/collections.service";
@@ -11,6 +16,13 @@ import "./profile.css";
 
 import {useTranslation} from "react-i18next";
 import "../../tranlations/i18next";
+
+const randomColors = [ amber, blue, blueGrey, brown, common,
+  cyan, deepOrange, deepPurple, green, grey, indigo, lightBlue,
+  lightGreen, lime, orange, pink, purple, red, teal, yellow
+];
+const randomIndex = ~~(Math.random() * ((randomColors.length - 1) - 0) + 0);
+const randomColor = randomColors[randomIndex];
 
 function Profile({ currentUser, topics, fieldTypes }) {
 
@@ -105,7 +117,7 @@ function Profile({ currentUser, topics, fieldTypes }) {
   return (
     <div className="profile__container">
       <div className="user__container">
-        <Avatar sx={{ width: 200, height: 200 }} />
+        <Avatar sx={{ width: 200, height: 200, bgcolor: randomColor[400] }} />
         <div className="user-info">
           <h1>{fullName}</h1>
           <p style={{ textAlign: "center" }}>{t("profile.account")} {created}</p>

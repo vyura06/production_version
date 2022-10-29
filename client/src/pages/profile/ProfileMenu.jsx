@@ -51,8 +51,8 @@ function ProfileMenu({ currentUser, setCurrentUser }) {
   }
 
   return (
-    <React.Fragment style={{backgroundColor:"#BCCEF8"}}>
-      <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+    <React.Fragment>
+      <Box sx={{ backgroundColor:"#BCCEF8", display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title={t("profile.menu.settings")}>
           <IconButton
             onClick={handleClick}
@@ -74,6 +74,7 @@ function ProfileMenu({ currentUser, setCurrentUser }) {
         PaperProps={{ elevation: 0 }}
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        style={{ backgroundColor:"#BCCEF8"}}
       >
         <MenuItem onClick={() => navigate("/profile")}>
           <Avatar sx={{ bgcolor: randomColor[400] }} />

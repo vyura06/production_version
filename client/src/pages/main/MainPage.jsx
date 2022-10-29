@@ -5,6 +5,7 @@ import itemsService from "../../service/items.service";
 import tagsService from "../../service/tags.service";
 import CollectionsTable from "../table/CollectionsTable";
 import ItemsTable from "../table/ItemsTable";
+import TagItemsTable from "../table/TagItemsTable";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -52,6 +53,57 @@ function MainPage({ currentUser }) {
   return (
     <>
       <div>
+        <section className="tags">
+          <Accordion style={{ backgroundColor: "#BCCEF8" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel2a-content"
+              id="panel2a-header"
+            >
+              <Typography>{t("main.tags")}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                <div>
+                  {tags?.length ? (
+                    tags.map((tag, i) => (
+
+                      <Accordion style={{ backgroundColor: "#BCCEF8" }}>
+                        <AccordionSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          aria-controls="panel2a-content"
+                          id="panel2a-header"
+                          size="small"
+                          key={i}
+                        >
+                          <Typography>{tag.name}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <Typography>
+                            <div>
+                              {lastItems?.length ? (
+                                <TagItemsTable items={lastItems} />
+                              ) : (
+                                <p>{t("main.nodata")}</p>
+                              )}
+                            </div>
+                          </Typography>
+                        </AccordionDetails>
+                      </Accordion>
+
+
+                    ))
+                  ) : (
+                    <p>{t("main.nodata")}</p>
+                  )}
+                </div>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+
+        </section>
+
         <section className="biggest-collections">
           <Accordion style={{ backgroundColor: "#BCCEF8" }}>
             <AccordionSummary
@@ -98,42 +150,6 @@ function MainPage({ currentUser }) {
           </Accordion>
         </section>
       </div>
-      <section className="tags">
-        <h2>{t("main.tags")}</h2>
-        <div>
-          {tags?.length ? (
-            tags.map((tag, i) => (
-
-              <Accordion style={{backgroundColor:"#BCCEF8"}}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-            size="small" 
-            key={i}
-          >
-            <Typography>{tag.name}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-            <div>
-                  {lastItems?.length ? (
-                    <ItemsTable items={lastItems} />
-                  ) : (
-                    <p>{t("main.nodata")}</p>
-                  )}
-                </div>
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-              
-              
-            ))
-          ) : (
-            <p>{t("main.nodata")}</p>
-          )}
-        </div>
-      </section>
     </>
   );
 }

@@ -15,13 +15,13 @@ import "../profile/profile.css";
 import {useTranslation} from "react-i18next";
 import "../../tranlations/i18next";
 
-function TagItemsTable({ items }) {
+function TagItemsTable({ items }, {tags}) {
 
   const {t} = useTranslation();
 
   const navigate = useNavigate();
 
-  const columns = ["#", t("columns.name"), t("columns.tags"), t("columns.link")];
+  const columns = ["#", t("columns.name"), t("columns.tags")];
 
   const handleItemLink = (item) => {
     navigate(`/collections/${item.collection_id}/items/${item.id}`, { state: { item } });
@@ -38,7 +38,8 @@ function TagItemsTable({ items }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {items.map((item, index) => (
+          {
+            items.map((item, index) => (
             <TableRow
               key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -49,16 +50,12 @@ function TagItemsTable({ items }) {
               <TableCell align="left">{item.name}</TableCell>
 
               <TableCell align="left">{item.tags.map((tag, i) => (
+                
                 <Button onClick={() => handleItemLink(item)} size="small" key={i} color="info" variant="outlined" sx={{ mr: 1, mb: 1, borderRadius: 40 }}>
                 {tag.name}
                 </Button>
               ))}</TableCell>
 
-              <TableCell align="left">
-                <IconButton onClick={() => handleItemLink(item)}>
-                  <OpenInNewIcon />
-                </IconButton>
-              </TableCell>
             </TableRow>
           ))}
         </TableBody>

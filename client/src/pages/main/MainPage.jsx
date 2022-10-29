@@ -76,7 +76,7 @@ function MainPage({ currentUser }) {
                           size="small"
                           key={i}
                         >
-                          <Typography>{tag.name}</Typography>
+                          <Typography>{tag.name}{tag.id}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                           <Typography>

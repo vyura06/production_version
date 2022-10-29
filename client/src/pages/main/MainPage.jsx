@@ -10,7 +10,6 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useNavigate } from "react-router-dom";
 import "./main.css";
 
 import { useTranslation } from "react-i18next";
@@ -20,12 +19,6 @@ function MainPage({ currentUser }) {
   const [biggestCollections, setBiggestCollections] = useState([]);
   const [lastItems, setLastItems] = useState([]);
   const [tags, setTags] = useState([]);
-
-  //const navigate = useNavigate();
-
-  //const handleItemLink = (item) => {
-   // navigate(`/collections/${item.collection_id}/items/${item.id}`, { state: { item } });
-  //}
 
   const { t } = useTranslation();
 
@@ -58,63 +51,83 @@ function MainPage({ currentUser }) {
 
   return (
     <>
-    <div>
-      <section className="biggest-collections">
-        <Accordion style={{backgroundColor:"#BCCEF8"}}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography>{t("main.top5")}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              <div>
-                {biggestCollections?.length ? (
-                  <CollectionsTable columns={collectionColumns} collections={biggestCollections} readOnly={true} />
-                ) : (
-                  <p>{t("main.nodata")}</p>
-                )}
-              </div>
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-      </section>
+      <div>
+        <section className="biggest-collections">
+          <Accordion style={{ backgroundColor: "#BCCEF8" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>{t("main.top5")}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                <div>
+                  {biggestCollections?.length ? (
+                    <CollectionsTable columns={collectionColumns} collections={biggestCollections} readOnly={true} />
+                  ) : (
+                    <p>{t("main.nodata")}</p>
+                  )}
+                </div>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        </section>
 
-      <section className="last-items">
-        <Accordion style={{backgroundColor:"#BCCEF8"}}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-          >
-            <Typography>{t("main.lastAdded")}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              <div>
-                {lastItems?.length ? (
-                  <ItemsTable items={lastItems} />
-                ) : (
-                  <p>{t("main.nodata")}</p>
-                )}
-              </div>
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-      </section>
+        <section className="last-items">
+          <Accordion style={{ backgroundColor: "#BCCEF8" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel2a-content"
+              id="panel2a-header"
+            >
+              <Typography>{t("main.lastAdded")}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                <div>
+                  {lastItems?.length ? (
+                    <ItemsTable items={lastItems} />
+                  ) : (
+                    <p>{t("main.nodata")}</p>
+                  )}
+                </div>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        </section>
       </div>
       <section className="tags">
         <h2>{t("main.tags")}</h2>
         <div>
           {tags?.length ? (
             tags.map((tag, i) => (
-              
-              <Button size="small" key={i} color="info" variant="outlined" sx={{ mr: 1, mb: 1, borderRadius: 40 }}>
-                {tag.name}
-              </Button>
 
+              <Accordion style={{backgroundColor:"#BCCEF8"}}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+            size="small" 
+            key={i}
+          >
+            <Typography>{tag.name}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+            <div>
+                  {lastItems?.length ? (
+                    <ItemsTable items={lastItems} />
+                  ) : (
+                    <p>{t("main.nodata")}</p>
+                  )}
+                </div>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+              
+              
             ))
           ) : (
             <p>{t("main.nodata")}</p>

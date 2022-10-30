@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import { Switch} from "@mui/material"
-import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 import LoginIcon from '@mui/icons-material/Login';
 import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from "react-router-dom";
 import ProfileMenu from "../profile/ProfileMenu";
 import { MenuItem, FormControl, Select, InputLabel } from "@mui/material";
-//import Search from "../search/Search";
+import SearchItems from "../search/SearchItems";
+
 
 import "../main/main.css";
 
@@ -54,16 +53,8 @@ function Nav({ currentUser, setCurrentUser }) {
       
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
 
-      <IconButton sx={{ p: '10px' }} aria-label="search">
-        <SearchIcon />
-      </IconButton>
-
-      <InputBase
-        sx={{ ml: 1, flex: 1 }}
-        placeholder={t("main.search")}
-        inputProps={{ 'aria-label': 'search' }}
-      />
-
+      <SearchItems style={{flex: 1}}></SearchItems>
+    
       <FormControl>
         <InputLabel>{t("translations.lng")}</InputLabel>
         <Select style={{ width:"4rem" }}>

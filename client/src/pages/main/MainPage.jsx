@@ -76,7 +76,7 @@ function MainPage({ currentUser }) {
                           size="small"
                           key={i}
                         >
-                          <Typography>{tag.name}{tag.id}</Typography>
+                          <Typography>{tag.name}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                           <Typography>
@@ -90,8 +90,6 @@ function MainPage({ currentUser }) {
                           </Typography>
                         </AccordionDetails>
                       </Accordion>
-
-
                     ))
                   ) : (
                     <p>{t("main.nodata")}</p>

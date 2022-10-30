@@ -2,10 +2,23 @@ import React from 'react';
 import { useState } from 'react';
 import '../search/search.css';
 import { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import itemsService from "../../service/items.service";
 import collectionsService from "../../service/collections.service";
 
 function SearchItems() {
+
+    const navigate = useNavigate();
+
+    const handleItemLink = (item) => {
+        navigate(`/collections/${item.collection_id}/items/${item.id}`, { state: { item } });
+    }
+
+    const handleCollectionLink = (collection) => {
+        navigate(`/collections/${collection.id}`, { state: { collection } });
+    }
+    
+
     const [searchTerm, setSearchTerm] = useState('')
     const [items, setItems] = useState([]);
     const [collections, setCollections] = useState([]);
@@ -28,7 +41,6 @@ function SearchItems() {
                 setSearchTerm(event.target.value);
             }} />
             {
-                //items
                 items.filter((item) => {
                     if (searchTerm != ""
                         && (item.name.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -38,7 +50,7 @@ function SearchItems() {
                 }).map((item, key) => {
                     return (
                         <div className="item" key={key}>
-                            <a>{item.name}</a>
+                            <a onClick={() => handleItemLink(item)}>{item.name}</a>
                         </div>
                     );
                 }).concat(collections.filter((collection) => {
@@ -50,7 +62,7 @@ function SearchItems() {
                 }).map((collection, k) => {
                     return (
                         <div className="item" key={k}>
-                            <a>{collection.name}</a>
+                            <a onClick={() => handleCollectionLink(collection)}>{collection.name}</a>
                         </div>
                     );
                 })

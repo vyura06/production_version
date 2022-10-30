@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import ProfileMenu from "../profile/ProfileMenu";
 import { MenuItem, FormControl, Select, InputLabel } from "@mui/material";
 import SearchItems from "../search/SearchItems";
-
+import Box from '@mui/material/Box';
 
 import "../main/main.css";
 
@@ -53,8 +53,8 @@ function Nav({ currentUser, setCurrentUser }) {
       
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
 
-      <SearchItems style={{flex: 1}}></SearchItems>
-    
+      <Box sx={{mr:10, flex:1}}>  <SearchItems></SearchItems></Box>
+
       <FormControl>
         <InputLabel>{t("translations.lng")}</InputLabel>
         <Select style={{ width:"4rem" }}>

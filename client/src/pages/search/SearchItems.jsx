@@ -40,6 +40,7 @@ function SearchItems() {
             <input type="text" placeholder="🔍" onChange={event => {
                 setSearchTerm(event.target.value);
             }} />
+            <div className="list">
             {
                 items.filter((item) => {
                     if (searchTerm != ""
@@ -68,7 +69,7 @@ function SearchItems() {
                 })
                 )
             }
-
+            </div>
         </div>
     );
 }

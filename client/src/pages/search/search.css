@@ -14,7 +14,7 @@
     border: 0.1rem solid black;
     width: 16rem;
     height: 2.5rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     padding-left: 0.7rem;
     border-radius: 0.5rem;
 }
@@ -25,24 +25,30 @@
 
 
 a { 
+    height: 100%;
     display: block;
-    margin: 0.7rem;
-    font-size: 1rem;
+    padding: 0.7rem;
+    font-size: 1.3rem;
 }
 
-.search .item:first-of-type {
+.list .item:first-of-type {
     margin-top: 10px;
     border-radius: 0.5rem 0.5rem 0 0;
 }
 
-.search .item:last-child {
+.list .item:last-child {
     border-radius:  0 0 0.5rem 0.5rem;
 }
 
 .item {
+    background-color: #fff;
+    color: black;
+    text-decoration: underline;
+}
+
+.list{
     width: 100%;
     height: 100%;
-    background-color: #fff;
-    color: blue;
-    text-decoration: underline;
+    position: absolute ;
+    top: 2.5rem;
 }

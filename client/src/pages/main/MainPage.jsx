@@ -82,7 +82,7 @@ function MainPage({ currentUser }) {
                           <Typography>
                             <div>
                               {lastItems?.length ? (
-                                <TagItemsTable items={lastItems} />
+                                <TagItemsTable tagsMain={tags.id} items={lastItems} />
                               ) : (
                                 <p>{t("main.nodata")}</p>
                               )}

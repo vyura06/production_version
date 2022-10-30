@@ -15,7 +15,7 @@ import "../profile/profile.css";
 import { useTranslation } from "react-i18next";
 import "../../tranlations/i18next";
 
-function TagItemsTable({ items }) {
+function TagItemsTable({ items }, { tagsMain }) {
 
     const { t } = useTranslation();
 

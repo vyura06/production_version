@@ -92,8 +92,8 @@ function Login({ setCurrentUser }) {
         >
           {t("authenfication.login.login")}
         </Button>
-        <span style={{ marginRight: 10, color:"white" }}>{t("authenfication.login.or")}</span>
-        <Link className="link" to="/registration">{t("authenfication.login.new")}</Link>
+        <span style={{color:"white" }}>{t("authenfication.login.or")}</span>
+        <Link style={{marginRight: "2rem"}} className="link" to="/registration">{t("authenfication.login.new")}</Link>
 
         {errorMessage && <div className="error-message">{errorMessage}</div>}
 

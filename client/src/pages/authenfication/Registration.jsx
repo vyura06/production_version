@@ -128,8 +128,8 @@ function Registration() {
         >
           {t("authenfication.registration.create")}
         </Button>
-        <span style={{ marginRight: 10, color:"white" }}>{t("authenfication.registration.or")}</span>
-        <Link className="link" to="/login">{t("authenfication.registration.login")}</Link>
+        <span style={{color:"white" }}>{t("authenfication.registration.or")}</span>
+        <Link style={{marginRight: "8rem"}} className="link" to="/login">{t("authenfication.registration.login")}</Link>
 
         {errorMessage && <div className="error-message">{errorMessage}</div>}
         <Button
